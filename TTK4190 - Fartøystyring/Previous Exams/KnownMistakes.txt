@@ -1,0 +1,35 @@
+List of known mistakes in the draft solutions (final exams)
+
+Exam 2011:
+
+- In problem 1i), the natural frequency is squared when K_d is calculated and this is wrong. It should not be squared so the answer is approximately 4,59 instead.
+
+Exam 2013:
+
+- In problem 1f), the error term should be \tilde{p} = p - p_t - R*[0, -15], hvor R er rotasjonsmatrisen fra b til n. 
+
+- In problem 2a), the cross-track error is missing. Equation 10.59 can be used for the expression, but x_k and y_k should be replaced by x_d(t) and y_d(t).
+
+- In problem 3c), the expression for the pitch angle is wrong. It should be equal to (11.269) in Fossen.
+
+- In problem 4a), the expressions for the linearized lift coefficient can be confusing. The solutions is most likely inspired by the approach by Beard & McLain (page 45). Using the definitions there, C_L(alpha) = C_{L0} + C_{L alpha} * alpha= 0 + 0.2*alpha when zero is the linearization point. In general, the linearization can be expressed as C_L = C_L(a) + dot{C_L(a)}(alpha - a) where a is the linearization point. The drag coefficient is correct. 
+
+- In problem 4d) equation (39), the term n^2 should be removed from the denominator.
+
+Exam 2014:
+
+- In problem 3a), the dimension of the matrices are wrong. Since both the position and velocity are 2D-vectors, the state vector should include four states (two for position and two for velocity). Therefore, the A matrix should have dimension 4x4, E should be 4x2 and H should be 2x4. You need to include both the position and velocity in the Kalman filter (even though you only want the velocity estimates for the guidance system).
+
+Exam 2015:
+
+- In problem 1a), the term D_f*n in the equation for Q_m should be D_f*n_d if you want the closed-loop dynamics on the next line in the solution.
+
+- In problem 2e), the weight matrix W is wrong. It should have a value of 10 on the top left corner and a value of 1 on the bottom right corner. This is because you want to penalize the use of the left aileron more. The weight matrix in the solution is penalizing the use of the right instead, which leads to more use of the aileron with a malfunction.
+
+- In problem 3d), the solution is wrong. The formula should be B33,v = -Z_w -B_33(wn) = 52204
+
+- In problem 3e), the solutions is wrong because of the error in 3d). Z_w = -B_33 total = -215286
+
+Exam 2016:
+
+- In problem 1f) (the last sentence), it is stated that global stability can be achieved if you use unit quaternions or rotation matrices as parametrization. This is not correct since quaternions have two equilibrium points, which mean that only local stability can be proved theoretically. Global stability can be proved if you design a control law with rotation matrices. 

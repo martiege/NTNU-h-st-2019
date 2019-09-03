@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[% initialize the values
+x_bar = zeros(2,1)
+P = 25 * eye(2)
+
+H_r = eye(2)
+H_c = eye(2)
+
+R_r = [79, 36; 36, 36]
+R_c = [28, 4; 4, 22]
+
+z_c = [2; 14]
+z_r = [-4; 6]
+
+% set up for plotting ellipses
+Npts = 100; % number of points around the circle
+circle = [cos( 0:(2*pi/Npts):(2*pi) ); sin( 0:(2*pi/Npts):(2*pi) )];
+
+% initial 1 sigma ellipses
+figure(1); clf; hold on; grid on;
+data = x_bar + chol(P)' * circle;
+plot(data(1,:), data(2, :), 'DisplayName','prior')
+
+% measurements 
+scatter(z_c(1), z_c(2), 'DisplayName', 'z_c')
+scatter(z_r(1), z_r(2), 'DisplayName', 'z_r')
+
+legend()]]></w:t></w:r></w:p><w:p><w:pPr><w:sectPr/></w:pPr></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[% You can make some functions to ease the conditionioning
+% FILL IN THE DOTS ...
+condition_mean = @(x_bar, z, P, H, R)  ...
+condition_cov = @(P, H, R) ...]]></w:t></w:r></w:p><w:p><w:pPr><w:sectPr/></w:pPr></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[% task 5 (f)
+% FILL IN FOR THE DOTS ...
+
+% condition on camera
+x_bar_c = ...
+P_c = ...
+
+% condition on radar
+x_bar_r = ...
+P_r = ...
+
+% Plot 1 sigma ellipses
+figure(2); clf; hold on; grid on;
+
+data = ... 
+plot( ... , 'DisplayName','prior')
+
+data = ...
+plot( ... , 'DisplayName', 'c')
+
+data = ... 
+plot( ... , 'DisplayName', 'r')
+
+% measurements
+scatter(z_c(1), z_c(2), 'DisplayName', 'z_c')
+scatter(z_r(1), z_r(2), 'DisplayName', 'z_r')
+legend()]]></w:t></w:r></w:p><w:p><w:pPr><w:sectPr/></w:pPr></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[% task 5 (g)
+
+% condition the already camera conditioned on the radar
+x_bar_cr = ... 
+P_cr =  ...
+
+% condition the already radar conditioned on the camera
+x_bar_rc = ...
+P_rc = ...
+
+% Plot 1 sigma ellipses
+figure(3); clf; hold on; grid on;
+
+... VISUALIZE ALL ELLIPSES HERE ...
+
+% meausrements
+scatter(z_c(1), z_c(2), 'DisplayName', 'z_c')
+scatter(z_r(1), z_r(2), 'DisplayName', 'z_r')
+
+legend()]]></w:t></w:r></w:p></w:body></w:document>
