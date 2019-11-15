@@ -59,5 +59,10 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "GLFW",
+        "OPENGL",
+        "Wwindow"
+    ]
 }
